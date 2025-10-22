@@ -1,42 +1,15 @@
-function alterarStatus1() {
-    const link = document.getElementById('btn1');
-    if(link.textContent == 'Devolver') {
-        link.textContent = 'Alugar';
-        buttonSwap('btn1');
-    } else {
-        link.textContent = 'Devolver';
-        buttonSwap('btn1');
-    }
-}
-function alterarStatus2() {
-    const link = document.getElementById('btn2');
-    if(link.textContent == 'Devolver') {
-        link.textContent = 'Alugar';
-        buttonSwap('btn2');
-    } else {
-        link.textContent = 'Devolver';
-        buttonSwap('btn2');
-    }
-}
-function alterarStatus3() {
-    const link = document.getElementById('btn3');
-    if(link.textContent == 'Devolver') {
-        link.textContent = 'Alugar';
-        buttonSwap('btn3');
-    } else {
-        link.textContent = 'Devolver';
-        buttonSwap('btn3');
-    }
-}
-function buttonSwap(btn) {
-    let botao = document.getElementById(btn);
-    if (botao.classList.contains('dashboard__item__button--return')) {
-        botao.classList.remove('dashboard__item__button--return');
-        botao.classList.add('dashboard__item__button');
-    } else {
-        botao.classList.remove('dashboard__item__button');
-        botao.classList.add('dashboard__item__button--return');
-         botao.classList.add('dashboard__item__button');
+function alterarStatus(id) {
+    const gameElement = document.getElementById(`game-${id}`);
+    const imageDiv = gameElement.querySelector('.dashboard__item__img');
+    const button = gameElement.querySelector('.dashboard__item__button');
 
+    if (button.classList.contains('dashboard__item__button--return')) {
+        button.classList.remove('dashboard__item__button--return');
+        imageDiv.classList.remove('dashboard__item__img--rented');
+        button.textContent = 'Alugar';
+    } else {
+        button.classList.add('dashboard__item__button--return');
+        imageDiv.classList.add('dashboard__item__img--rented');
+        button.textContent = 'Devolver';
     }
 }
