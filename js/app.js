@@ -6,6 +6,10 @@ function alterarStatus(id) {
 
 
     if (button.classList.contains('dashboard__item__button--return')) {
+       let confirmacao = confirm(`Deseja devolver o game ${nomeDoJogo}?`);
+        if (!confirmacao) {
+            return;
+        }
         button.classList.remove('dashboard__item__button--return');
         imageDiv.classList.remove('dashboard__item__img--rented');
         button.textContent = 'Alugar';
